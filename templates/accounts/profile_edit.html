@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Profile - ServiceMarket{% endblock %}
+
+{% block content %}
+<h1>Edit Profile</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save changes</button>
+</form>
+
+<p>
+    <a href="{% url 'profile-detail' %}">Back to profile</a>
+</p>
+{% endblock %}

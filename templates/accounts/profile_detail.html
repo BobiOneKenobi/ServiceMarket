@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}My Profile - ServiceMarket{% endblock %}
+
+{% block content %}
+<h1>My Profile</h1>
+
+<p><strong>Username:</strong> {{ profile.user.username }}</p>
+<p><strong>Email:</strong> {{ profile.user.email }}</p>
+<p><strong>City:</strong> {{ profile.city|default:"Not provided" }}</p>
+<p><strong>Bio:</strong> {{ profile.bio|default:"No bio yet." }}</p>
+
+{% if profile.profile_picture %}
+    <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}" width="180">
+{% endif %}
+
+<p>
+    <a href="{% url 'profile-edit' %}">Edit profile</a>
+</p>
+{% endblock %}
